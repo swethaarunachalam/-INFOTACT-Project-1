@@ -1,0 +1,15 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hover-effect {
+  transition: color 0.3s ease;
+}
+
+.hover-effect:hover {
+  color: #6c757d !important; /* Bootstrap secondary color */
+}
+
+
+
