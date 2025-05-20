@@ -14,7 +14,7 @@ function Login({ showModal, handleCloseModal }) {
     const phoneRegex = /^[789]\d{9}$/;
     if (!phoneRegex.test(phoneNumber)) {
       setError(
-        "Please enter a valid 10-digit Indian phone number starting with 7, 8, or 9."
+        "Please enter a valid 10-digit Indian phone number."
       );
       return;
     }
@@ -52,8 +52,8 @@ function Login({ showModal, handleCloseModal }) {
             left: "0",
             width: "100%",
             height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.8)", 
-            zIndex: "1040", 
+            backgroundColor: "rgba(0, 0, 0, 0.9)",
+            zIndex: "1040",
           }}
         ></div>
 
@@ -87,22 +87,36 @@ function Login({ showModal, handleCloseModal }) {
                 {!isOtpSent ? (
                   <form onSubmit={handlePhoneSubmit}>
                     <div className="mb-3">
-                      <label htmlFor="phone" className="form-label">
-                        Phone Number
+                      <label htmlFor="phone" className="form-label mt-2 mb-3">
+                       Enter Your Phone Number
                       </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="phone"
-                        value={phoneNumber}
-                        onChange={(e) => setPhoneNumber(e.target.value)}
-                        placeholder="Enter your phone number"
-                        required
-                        maxLength="10"
-                        pattern="[789]{1}[0-9]{9}" 
-                        inputMode="numeric" 
-                      />
-                      {error && <div className="text-danger mt-2">{error}</div>}
+                      <div
+                        className="input-group mt-2 mb-4"
+                      >
+                        {/* +91 Prefix */}
+                        <span className="input-group-text bg-light border-secondary text-muted">
+                          +91
+                        </span>
+
+                        {/* Phone Number Input Field */}
+                        <input
+                          type="tel"
+                          className="form-control border-secondary"
+                          value={phoneNumber}
+                          onChange={(e) => setPhoneNumber(e.target.value)}
+                          placeholder="Enter your phone number"
+                          maxLength="10"
+                          inputMode="numeric"
+                          onKeyDown={(e) => {
+                            // Prevent unwanted characters like e, +, -, .
+                            if (["e", "E", "+", "-", "."].includes(e.key)) {
+                              e.preventDefault();
+                            }
+                          }}
+                        />
+                      </div>
+
+                      {error && <div className="text-danger mb-4 mx-5">{error}</div>}
                     </div>
                     <div className="d-flex justify-content-between">
                       <button type="submit" className="btn btn-secondary">
@@ -119,27 +133,27 @@ function Login({ showModal, handleCloseModal }) {
                   </form>
                 ) : (
                   <form onSubmit={handleOtpSubmit}>
-                    <div className="mb-3">
+                    <div className="mb-5">
                       <label htmlFor="otp" className="form-label">
                         Enter OTP
                       </label>
                       <input
                         type="text"
-                        className="form-control"
+                        className="form-control mt-3"
                         id="otp"
                         value={otp}
                         onChange={(e) => setOtp(e.target.value)}
-                        placeholder="Enter OTP"
+                        placeholder=""
                         required
                         maxLength="6"
                         inputMode="numeric" // Numeric input mode for OTP
                       />
                       {otpError && (
-                        <div className="text-danger mt-2">{otpError}</div>
+                        <div className="text-danger mt-2 ">{otpError}</div>
                       )}
                     </div>
                     <div className="d-flex justify-content-between">
-                      <button type="submit" className="btn btn-primary">
+                      <button type="submit" className="btn btn-success">
                         Verify OTP
                       </button>
                       <button
@@ -161,10 +175,10 @@ function Login({ showModal, handleCloseModal }) {
         <style jsx="true">{`
           @keyframes slide-up {
             0% {
-              transform: translateX(-50%) translateY(100%); 
+              transform: translateX(-50%) translateY(100%);
             }
             100% {
-              transform: translateX(-50%) translateY(30%); 
+              transform: translateX(-50%) translateY(30%);
             }
           }
         `}</style>

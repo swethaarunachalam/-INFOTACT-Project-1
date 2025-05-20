@@ -1,6 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 
 function BookService() {
+
+ 
   const scrollRef = useRef(null);
   const [showPrev, setShowPrev] = useState(false);
 
@@ -66,7 +68,17 @@ function BookService() {
               <div
                 key={item.id}
                 className="me-3"
-                style={{ minWidth: "400px", flex: "0 0 auto" }}
+                style={{
+                  minWidth: "400px",
+                  flex: "0 0 auto",
+                  transition: "transform 0.3s ease-in-out",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.transform = "scale(1.02)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.transform = "scale(1)")
+                }
               >
                 <div className="card h-100 border-0 shadow-sm">
                   <img
@@ -76,7 +88,7 @@ function BookService() {
                     style={{
                       height: "220px",
                       objectFit: "cover",
-                      cursor:"pointer"
+                      cursor: "pointer",
                     }}
                   />
                 </div>

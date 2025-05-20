@@ -1,5 +1,5 @@
-import Navbar from "./components/Navbar"
 
+import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home.jsx";
 import Footer from "./pages/Footer.jsx";
@@ -12,6 +12,8 @@ import HomeRepair from "./components/HomeRepair.jsx";
 import SalonMen from "./components/SalonMen.jsx";
 import MassageMen from "./components/MassageMen.jsx";
 import CleaningPest from "./components/CleaningPest.jsx";
+
+
 
 const App = () => {
   return (
@@ -31,6 +33,6 @@ const App = () => {
       <Footer />
     </>
   );
-}
+};
 
-export default App
+export default App;

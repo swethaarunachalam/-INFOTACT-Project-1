@@ -12,7 +12,6 @@ const Footer = () => {
               style={{
                 height: "40px",
               }}
-              
             >
               <img
                 src="/images/logo.png"
@@ -91,16 +90,28 @@ const Footer = () => {
           <div className="col-12 col-md-4">
             <h6 className="fw-semibold mb-3">Connect with Us</h6>
             <div className="d-flex gap-3">
-              <a href="#" className="text-secondary fs-5">
+              <a
+                href="https://www.facebook.com/UrbanCompany/"
+                className="text-secondary  fs-5 hover-effect"
+              >
                 <i className="bi bi-facebook"></i>
               </a>
-              <a href="#" className="text-secondary fs-5">
+              <a
+                href="https://x.com/urbancompany_UC"
+                className="text-secondary fs-5 hover-effect"
+              >
                 <i className="bi bi-twitter-x"></i>
               </a>
-              <a href="#" className="text-secondary fs-5">
+              <a
+                href="https://www.instagram.com/urbancompany/?hl=en"
+                className="text-secondary fs-5 hover-effect"
+              >
                 <i className="bi bi-instagram"></i>
               </a>
-              <a href="#" className="text-secondary fs-5">
+              <a
+                href="https://www.linkedin.com/company/urbancompany/?originalSubdomain=in"
+                className="text-secondary fs-5 hover-effect"
+              >
                 <i className="bi bi-linkedin"></i>
               </a>
             </div>
